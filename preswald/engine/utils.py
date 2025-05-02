@@ -1,13 +1,12 @@
-import hashlib
 import json
 import logging
-import re
 import zlib
 from datetime import date, datetime
-from typing import Any
-
+from typing import Any, Dict, List, Union
+import hashlib
 import msgpack
 import numpy as np
+import re
 
 
 logger = logging.getLogger(__name__)
@@ -199,7 +198,7 @@ class RenderBuffer:
     HASH_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
     def __init__(self):
-        self._state_cache: dict[str, str] = {}
+        self._state_cache: Dict[str, str] = {}
 
     def has_changed(self, component_id: str, new_value: Any) -> bool:
         """Check if the new hash differs from the cached one."""

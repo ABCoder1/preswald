@@ -153,10 +153,8 @@ def _setup_static_files(app: FastAPI) -> BrandingManager:
     assets_dir = static_dir / "assets"
 
     # Ensure directories exist
-    if os.path.isdir(assets_dir):
-        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
-    else:
-        logging.warning(f"Assets directory not found in package: {assets_dir}")
+    os.makedirs(static_dir, exist_ok=True)
+    os.makedirs(assets_dir, exist_ok=True)
 
     # Mount static files
     app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")

@@ -28,7 +28,7 @@ from .components import (
     workflow_dag,
 )
 from .data import connect, get_df, query
-from .workflow import RetryPolicy, Workflow, WorkflowAnalyzer
+from .workflow import RetryPolicy, Workflow, WorkflowAnalyzer, AtomStatus
 
 
 # Get all imported names (excluding special names like __name__)
